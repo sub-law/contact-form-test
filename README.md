@@ -62,6 +62,12 @@ DB_PASSWORD=laravel_pass
 アプリキー生成（php artisan key:generate）
 
 マイグレーション実行（php artisan migrate）
+ダミーデータ（Seeder / Factory）の作成と投入(php artisan db:seed)
+CategoriesTableSeeder：カテゴリ5件を生成（固定値）
+ContactsTableSeeder：ユーザーとカテゴリに紐づく問い合わせデータを35件生成
+Seederは `database/seeders` に配置
+Factoryは `database/factories` に配置
+関連付けはリレーションを用いて構築済み（詳細は各Seeder参照）
 
 🧪 使用技術
 php:8.1-fpm
