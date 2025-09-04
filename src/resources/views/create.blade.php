@@ -49,9 +49,9 @@
                         <span class="form__label--required">※</span>
                     </div>
                     <div class="form__group-content">
-                        <label><input type="radio" name="gender" value="male" checked> 男性</label>
-                        <label><input type="radio" name="gender" value="female"> 女性</label>
-                        <label><input type="radio" name="gender" value="other"> その他</label>
+                        <label><input type="radio" name="gender" value="1" checked> 男性</label>
+                        <label><input type="radio" name="gender" value="2"> 女性</label>
+                        <label><input type="radio" name="gender" value="3"> その他</label>
                         <div class="form__error" aria-live="polite"></div>
                     </div>
                 </div>
