@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ConfirmController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,6 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-Route::get('/', [ContactController::class, 'create']);
-Route::get('/edit', [ContactController::class, 'edit'])->name('edit');
-Route::get('/confirm', [ContactController::class, 'confirm'])->name('confirm');
-Route::get('/thanks', [ContactController::class, 'thanks'])->name('thanks');
+Route::get('/', [ContactController::class, 'create'])->name('create');
 Route::post('/store', [ContactController::class, 'store'])->name('store');
+Route::post('/confirm', [ContactController::class, 'confirm'])->name('confirm');

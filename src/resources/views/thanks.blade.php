@@ -13,7 +13,7 @@
         <div class="background-text">Thank you</div>
         <div class="thanks-box">
             <p class="message">お問い合わせありがとうございました</p>
-            <a href="{{ route('edit') }}" class="home-button">HOME</a>
+            <a href="{{ route('create') }}" class="home-button">HOME</a>
         </div>
     </div>
 </body>

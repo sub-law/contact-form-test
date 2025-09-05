@@ -14,10 +14,4 @@ class Contact extends Model
     {
         return $this->belongsTo(Category::class);
     }
-
-    // Contactモデルに追加
-    public function getGenderLabelAttribute()
-    {
-        return [1 => '男性', 2 => '女性', 3 => 'その他'][$this->gender] ?? '未設定';
-    }
 }

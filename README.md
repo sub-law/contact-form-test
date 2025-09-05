@@ -1,12 +1,12 @@
 # laravel-docker-template
 🌿 お問い合わせフォーム：セットアップ用ブックマーク集
 アプリケーション名：contact-form-test
-🚀 環境構築手順
-Git Clone（リポジトリ取得）
-(git clone git@github.com:Estra-Coachtech/laravel-docker-template.git)
+🚀 環境構築手順　※()カッコ内はコマンド
+Git Cloneでリポジトリを取得
+(git clone git@github.com:Estra-Coachtech/laravel-docker-template.git)//修正中
 
-リポジトリ名変更
-(mv laravel-docker-template contact-form-test)
+🚀リポジトリ名変更
+(mv laravel-docker-template contact-form-test)//修正中
 
 githubでリモートリポジトリの url を変更
 ローカルリポジトリから紐付け先を変更
@@ -19,39 +19,40 @@ githubでリモートリポジトリの url を変更
 (git commit -m "リモートリポジトリの変更")
 (git push origin main)
 
-
-Docker ビルド
-(docker-compose up -d --build)
-(code .)
-
-MySQL 通信設定（※OSに応じて docker-compose.yml 編集）
-
-🛠 Laravel環境構築
+🚀Laravel環境構築
 
 プロジェクト直下に
 .env
-.gitignoreを作成
+.gitignore
+上記2つのファイルを作成
 
-.env（UID/GIDはホストOSのユーザーIDに合わせて設定）
+.envに以下の記述を追記（UID/GIDはホストOSのユーザーIDに合わせて設定）
 UID=1000
 GID=1000
 
-.gitignore
+.gitignoreに以下の記述を追記
 .env
 docker/mysql/data/
 
-docker-compose.yml 編集
+MySQL 通信設定（※OSに応じて docker-compose.yml 編集）
+docker-compose.ymlの編集
 php:
     build: ./docker/php
     volumes:
       - ./src:/var/www/
     user: "${UID}:${GID}"
 
-PHPコンテナに入る（docker-compose exec php bash）
+Docker ビルド
+(docker-compose up -d --build)
 
-Composer インストール（composer install）
+PHPコンテナに入る
+（docker-compose exec php bash）
 
-.env 作成と環境変数設定（.env.example→.env）
+Composer インストール
+（composer install）
+
+.env 作成と環境変数設定
+（cp .env.example .env）
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
@@ -59,15 +60,18 @@ DB_DATABASE=laravel_db
 DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
 
-アプリキー生成（php artisan key:generate）
+アプリキー生成
+（php artisan key:generate）
 
-マイグレーション実行（php artisan migrate）
-ダミーデータ（Seeder / Factory）の作成と投入(php artisan db:seed)
-CategoriesTableSeeder：カテゴリ5件を生成（固定値）
-ContactsTableSeeder：ユーザーとカテゴリに紐づく問い合わせデータを35件生成
-Seederは `database/seeders` に配置
-Factoryは `database/factories` に配置
-関連付けはリレーションを用いて構築済み（詳細は各Seeder参照）
+🚀データベースの作成
+
+マイグレーション
+（php artisan migrate）
+
+ダミーデータの作成
+(php artisan db:seed)
+
+PHPコンテナから出る　"Ctrl+D"
 
 🧪 使用技術
 php:8.1-fpm
@@ -78,7 +82,8 @@ Laravel Framework 8.83.8（※以下コマンドで確認可能）
 MySQL 8.0.26
 
 🌐 アクセスURL
-開発環境：http://localhost
+お問い合わせフォーム入力ページ：http://localhost/
+ユーザー登録ページ：http://localhost/register/
 
 phpMyAdmin:http://localhost:8080/
 ログイン情報：  

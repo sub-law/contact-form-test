@@ -33,16 +33,22 @@
                     </div>
                     <div class="form__group-content is-row-2">
                         <div class="form__input--text">
-                            <input id="last_name" type="text" name="last_name" placeholder="姓（例：山田）" required>
+                            <input id="last_name" type="text" name="last_name" value="{{ old('last_name') }}" placeholder="姓（例：山田）" required>
+
                         </div>
+                        @error('last_name')
+                        <div class="form__error">{{ $message }}</div>
+                        @enderror
+
                         <div class="form__input--text">
-                            <input id="first_name" type="text" name="first_name" placeholder="名（例：太郎）" required>
+                            <input id="first_name" type="text" name="first_name" value="{{ old('first_name') }}" placeholder="名（例：太郎）" required>
                         </div>
-                        <div class="form__error" aria-live="polite"></div>
+                        @error('first_name')
+                        <div class="form__error">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
 
-                <!-- 性別（装飾なしのラジオ） -->
                 <div class="form__group">
                     <div class="form__group-title">
                         <span class="form__label--item">性別</span>
@@ -56,7 +62,6 @@
                     </div>
                 </div>
 
-                <!-- メールアドレス -->
                 <div class="form__group">
                     <div class="form__group-title">
                         <label class="form__label--item" for="email">メールアドレス</label>
@@ -64,29 +69,44 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form__input--text">
-                            <input id="email" type="email" name="email" placeholder="test@example.com" required>
+                            <input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="test@example.com" required>
+
                         </div>
-                        <div class="form__error" aria-live="polite"></div>
+                        @error('email')
+                        <div class="form__error">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
 
-                <!-- 電話番号（3分割 横並び） -->
+
                 <div class="form__group">
                     <div class="form__group-title">
                         <label class="form__label--item" for="tel1">電話番号</label>
                         <span class="form__label--required">※</span>
                     </div>
+
                     <div class="form__group-content is-row-3">
                         <div class="form__input--text">
-                            <input id="tel1" type="text" inputmode="numeric" pattern="\d*" name="tel1" placeholder="080" required>
+                            <input id="tel1" type="text" inputmode="numeric" pattern="\d*" name="tel1" value="{{ old('tel1') }}" placeholder="080" required>
                         </div>
+                        @error('tel1')
+                        <div class="form__error">{{ $message }}</div>
+                        @enderror
+
                         <div class="form__input--text">
-                            <input id="tel2" type="text" inputmode="numeric" pattern="\d*" name="tel2" placeholder="1234" required>
+                            <input id="tel2" type="text" inputmode="numeric" pattern="\d*" name="tel2" value="{{ old('tel2') }}" placeholder="1234" required>
                         </div>
+                        @error('tel2')
+                        <div class="form__error">{{ $message }}</div>
+                        @enderror
+
                         <div class="form__input--text">
-                            <input id="tel3" type="text" inputmode="numeric" pattern="\d*" name="tel3" placeholder="5678" required>
+                            <input id="tel3" type="text" inputmode="numeric" pattern="\d*" name="tel3" value="{{ old('tel3') }}" placeholder="5678" required>
                         </div>
-                        <div class="form__error" aria-live="polite"></div>
+                        @error('tel3')
+                        <div class="form__error">{{ $message }}</div>
+                        @enderror
+
                     </div>
                 </div>
 
@@ -98,9 +118,12 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form__input--text">
-                            <input id="address" type="text" name="address" placeholder="東京都〇〇区〇〇町3-2-3" required>
+                            <input id="address" type="text" name="address" value="{{ old('address') }}" placeholder="東京都〇〇区〇〇町3-2-3" required>
                         </div>
-                        <div class="form__error" aria-live="polite"></div>
+                        @error('address')
+                        <div class="form__error">{{ $message }}</div>
+                        @enderror
+
                     </div>
                 </div>
 
@@ -111,9 +134,12 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form__input--text">
-                            <input id="building" type="text" name="building" placeholder="〇〇マンション101">
+                            <input id="building" type="text" name="building" value="{{ old('building') }}" placeholder="〇〇マンション101">
                         </div>
-                        <div class="form__error" aria-live="polite"></div>
+                        @error('building')
+                        <div class="form__error">{{ $message }}</div>
+                        @enderror
+
                     </div>
                 </div>
 
@@ -125,35 +151,37 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form__input--text">
-                            <select id="type" name="type" required>
+
+                            <select id="category_type" name="category_type" required>
                                 <option value="" selected>選択してください</option>
-                                <option value="product">商品について</option>
-                                <option value="bug">不具合の報告</option>
-                                <option value="other">その他</option>
-                            </select>
-                            <!--後ほど実装
-                                {{-- 
                                 @foreach ($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                @endforeach 
-                                --}}-->
+                                <option value="{{ $category->id }}" {{ old('category_type') == $category->id ? 'selected' : '' }}>
+                                    {{ $category->content }}
+                                </option>
+                                @endforeach
+                            </select>
                         </div>
-                        <div class="form__error" aria-live="polite"></div>
+                        @error('category_type')
+                        <div class="form__error">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
 
                 <!-- お問い合わせ内容 -->
                 <div class="form__group">
                     <div class="form__group-title">
-                        <label class="form__label--item" for="message">お問い合わせ内容</label>
+                        <label class="form__label--item" for="detail">お問い合わせ内容</label>
                         <span class="form__label--required">※</span>
                     </div>
                     <div class="form__group-content">
                         <div class="form__input--textarea">
-                            <textarea id="message" name="message" placeholder="お問い合わせ内容をご記載ください" required></textarea>
+                            <textarea id="detail" name="detail" placeholder="お問い合わせ内容をご記載ください" required>{{ old('detail') }}</textarea>
                         </div>
-                        <div class="form__error" aria-live="polite"></div>
+                        @error('detail')
+                        <div class="form__error">{{ $message }}</div>
+                        @enderror
                     </div>
+
                 </div>
 
                 <!-- 送信 -->
