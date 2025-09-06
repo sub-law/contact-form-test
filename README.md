@@ -89,3 +89,7 @@ phpMyAdmin:http://localhost:8080/
 ログイン情報：  
 ユーザー名：laravel_user  
 パスワード：laravel_pass
+
+
+test12345@example.com
+123456789

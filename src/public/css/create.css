@@ -1,38 +1,3 @@
-.header {
-    background: #ffffff;
-}
-
-.header__inner {
-    margin: 0 auto;
-    padding: 20px 15px;
-    max-width: 1230px;
-}
-
-.header__logo {
-    color: #9c8e7f;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 24px;
-}
-
-:root {
-    --c-text: #333;
-    --c-muted: #888;
-    --c-border: #ddd;
-    --c-bg: #fff;
-    --c-accent: #9c8e7f;
-    --c-danger: #e60012;
-    /* ※ の色 */
-}
-
-body {
-    color: var(--c-text);
-    background: #f9f9f9;
-}
-
 .contact-form__content {
     margin: 0 auto;
     padding: 30px 15px;
@@ -49,13 +14,11 @@ body {
     color: var(--c-accent);
 }
 
-/* フォームのベース */
 .form {
     margin: 0 auto;
     width: 100%;
 }
 
-/* ラベル列 + 入力列の2カラム */
 .form__group {
     display: grid;
     grid-template-columns: 180px 1fr;
@@ -76,32 +39,40 @@ body {
 }
 
 .form__label--required {
-    color: var(--c-danger);
-    font-weight: 700;
+    color: red;
+    font-weight: bold;
 }
 
-/* 入力エリア */
 .form__group-content {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
 }
 
-/* 2分割（お名前など） */
 .form__group-content.is-row-2 .form__input--text {
     flex: 1 1 260px;
 }
 
-/* 3分割（電話番号） */
 .form__group-content.is-row-3 .form__input--text {
-    flex: 0 1 120px;
+    flex: 1 1 30%;
 }
 
 .form__group-content.is-row-3 .form__input--text input {
     text-align: center;
 }
 
-/* テキスト/セレクト/テキストエリア共通 */
+.form__group-content.is-row-2 {
+    max-width: 600px;
+    width: 100%;
+    gap: 16px;
+}
+
+.form__group-content.is-row-3 {
+    max-width: 600px;
+    width: 100%;
+    gap: 12px;
+}
+
 .form__input--text input,
 .form__input--text select,
 .form__input--textarea textarea {
@@ -134,7 +105,35 @@ body {
     resize: vertical;
 }
 
-/* エラー表示（プレースホルダ） */
+.form__input--text select {
+    background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px 16px;
+    padding-right: 36px;
+    appearance: none;
+}
+
+.form__input--text.is-half select {
+    max-width: 300px;
+    padding-right: 32px;
+    background-position: right 10px center;
+}
+
+.form__input--text input,
+.form__input--textarea textarea {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.form__input--text,
+.form__input--textarea {
+    flex: 1 1 100%;
+    max-width: 600px;
+}
+
 .form__error {
     flex-basis: 100%;
     min-height: 18px;
@@ -142,14 +141,12 @@ body {
     font-size: 13px;
 }
 
-/* ラジオ（装飾なし・間隔のみ） */
 .form__group-content label {
     display: inline-flex;
     align-items: center;
     gap: 6px;
 }
 
-/* 送信ボタン */
 .form__button {
     margin-top: 28px;
     text-align: center;
@@ -176,7 +173,6 @@ body {
     transform: translateY(1px);
 }
 
-/* レスポンシブ */
 @media (max-width: 720px) {
     .form__group {
         grid-template-columns: 1fr;
