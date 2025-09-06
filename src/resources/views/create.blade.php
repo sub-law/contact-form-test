@@ -12,6 +12,7 @@
 
         <form class="form" action="/confirm" method="post" novalidate>
             @csrf
+
             <div class="form__group">
                 <div class="form__group-title">
                     <label class="form__label--item" for="last_name">お名前</label>
@@ -20,12 +21,10 @@
                 <div class="form__group-content is-row-2">
                     <div class="form__input--text">
                         <input id="last_name" type="text" name="last_name" value="{{ old('last_name') }}" placeholder="姓（例：山田）" required>
-
                     </div>
                     @error('last_name')
                     <div class="form__error">{{ $message }}</div>
                     @enderror
-
                     <div class="form__input--text">
                         <input id="first_name" type="text" name="first_name" value="{{ old('first_name') }}" placeholder="名（例：太郎）" required>
                     </div>
@@ -56,7 +55,6 @@
                 <div class="form__group-content">
                     <div class="form__input--text">
                         <input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="test@example.com" required>
-
                     </div>
                     @error('email')
                     <div class="form__error">{{ $message }}</div>
@@ -64,13 +62,11 @@
                 </div>
             </div>
 
-
             <div class="form__group">
                 <div class="form__group-title">
                     <label class="form__label--item" for="tel1">電話番号</label>
                     <span class="form__label--required">※</span>
                 </div>
-
                 <div class="form__group-content is-row-3">
                     <div class="form__input--text">
                         <input id="tel1" type="text" inputmode="numeric" pattern="\d*" name="tel1" value="{{ old('tel1') }}" placeholder="080" required>
@@ -78,21 +74,18 @@
                     @error('tel1')
                     <div class="form__error">{{ $message }}</div>
                     @enderror
-
                     <div class="form__input--text">
                         <input id="tel2" type="text" inputmode="numeric" pattern="\d*" name="tel2" value="{{ old('tel2') }}" placeholder="1234" required>
                     </div>
                     @error('tel2')
                     <div class="form__error">{{ $message }}</div>
                     @enderror
-
                     <div class="form__input--text">
                         <input id="tel3" type="text" inputmode="numeric" pattern="\d*" name="tel3" value="{{ old('tel3') }}" placeholder="5678" required>
                     </div>
                     @error('tel3')
                     <div class="form__error">{{ $message }}</div>
                     @enderror
-
                 </div>
             </div>
 
@@ -108,7 +101,6 @@
                     @error('address')
                     <div class="form__error">{{ $message }}</div>
                     @enderror
-
                 </div>
             </div>
 
@@ -123,7 +115,6 @@
                     @error('building')
                     <div class="form__error">{{ $message }}</div>
                     @enderror
-
                 </div>
             </div>
 
@@ -158,18 +149,18 @@
                 </div>
                 <div class="form__group-content">
                     <div class="form__input--textarea">
-                        <textarea id="detail" name="detail" placeholder="お問い合わせ内容をご記載ください" required>{{ old('detail') }}</textarea>
+                        <textarea id="detail" name="detail" placeholder="お問い合わせ内容をご記載ください(120文字以内)" required>{{ old('detail') }}</textarea>
                     </div>
                     @error('detail')
                     <div class="form__error">{{ $message }}</div>
                     @enderror
                 </div>
-
             </div>
 
             <div class="form__button">
                 <button class="form__button-submit" type="submit">送信する</button>
             </div>
+
         </form>
     </div>
 </main>

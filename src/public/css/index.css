@@ -3,6 +3,11 @@ body {
     font-family: 'Helvetica Neue', sans-serif;
 }
 
+.logout-btn{
+    background-color: #f6f6f6;
+    color: #d6cdc5;
+}
+
 .admin-container {
     max-width: 1080px;
     margin: 60px auto;
@@ -53,6 +58,7 @@ body {
     font-size: 14px;
     border-radius: 4px;
     text-align: center;
+    cursor: pointer;
 }
 
 .search-form input,
@@ -93,6 +99,10 @@ body {
     display: inline-block;
 }
 
+.reset-btn:hover {
+    background-color: #a67c52;
+}
+
 .search-buttons {
     display: flex;
     gap: 12px;
@@ -118,9 +128,8 @@ body {
     white-space: nowrap;
 }
 
-.export-btn {
-    background-color: #a67c52;
-    color: #fff;
+.export-btn:hover {
+    background-color: #82766a;
 }
 
 .admin-table {
@@ -145,12 +154,16 @@ body {
 }
 
 .detail-btn {
-    background-color: #007bff;
+    background-color: #a67c52;
     color: #fff;
     border: none;
     padding: 6px 12px;
     border-radius: 4px;
     cursor: pointer;
+}
+
+.detail-btn:hover{
+    background-color: #A06A45;
 }
 
 .modal {
@@ -228,9 +241,9 @@ body {
 }
 
 .pagination .active span {
-    background-color: #007bff;
+    background-color: #82766a;
     color: #fff;
-    border-color: #007bff;
+    border-color: #82766a;
 }
 
 .pagination li:first-child a,

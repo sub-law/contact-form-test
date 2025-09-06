@@ -4,12 +4,11 @@
 <link rel="stylesheet" href="{{ asset('css/confirm.css') }}" />
 @endsection
 
-
 @section('content')
     <main>
-
         <div class="container">
             <h1>Confirm</h1>
+            
             <table class="confirm-table">
                 <tr>
                     <th>お名前</th>
