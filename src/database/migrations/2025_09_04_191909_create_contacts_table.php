@@ -14,17 +14,17 @@ class CreateContactsTable extends Migration
     public function up()
     {
         Schema::create('contacts', function (Blueprint $table) {
-            $table->id(); // bigint unsigned, PRIMARY KEY, NOT NULL
-            $table->foreignId('category_id')->constrained()->cascadeOnDelete();// FOREIGN KEY
-            $table->string('first_name'); // NOT NULL
-            $table->string('last_name');  // NOT NULL
-            $table->tinyInteger('gender'); // NOT NULL, 1:男性 2:女性 3:その他
-            $table->string('email'); // NOT NULL
-            $table->string('tel')->nullable(); // 任意
-            $table->string('address')->nullable(); // 任意
-            $table->string('building')->nullable(); // 任意
-            $table->text('detail')->nullable(); // 任意
-            $table->timestamps(); // created_at, updated_at（どちらも NOT NULL）
+            $table->id(); 
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
+            $table->string('first_name'); 
+            $table->string('last_name');  
+            $table->tinyInteger('gender'); 
+            $table->string('email'); 
+            $table->string('tel')->nullable(); 
+            $table->string('address')->nullable(); 
+            $table->string('building')->nullable(); 
+            $table->text('detail')->nullable(); 
+            $table->timestamps(); 
         });
     }
 

@@ -1,17 +1,18 @@
 # laravel-docker-template
-🌿 お問い合わせフォーム：セットアップ用ブックマーク集
-アプリケーション名：contact-form-test
+🌿 確認テスト：お問い合わせフォーム
+セットアップ用ブックマーク集
+
 🚀 環境構築手順　※()カッコ内はコマンド
 Git Cloneでリポジトリを取得
-(git clone git@github.com:Estra-Coachtech/laravel-docker-template.git)//修正中
+//修正中
 
 🚀リポジトリ名変更
-(mv laravel-docker-template contact-form-test)//修正中
+(mv laravel-docker-template 任意の名前)
 
 githubでリモートリポジトリの url を変更
 ローカルリポジトリから紐付け先を変更
-(cd contact-form-test)
-(git remote set-url origin 作成したリポジトリのurl)
+(cd 任意の名前)
+(git remote set-url origin githubで作成したリポジトリのurl)
 (git remote -v)
 
 現在のローカルリポジトリのデータをリモートリポジトリに反映
@@ -21,10 +22,9 @@ githubでリモートリポジトリの url を変更
 
 🚀Laravel環境構築
 
-プロジェクト直下に
+プロジェクト直下に以下のファイル2つを作成
 .env
 .gitignore
-上記2つのファイルを作成
 
 .envに以下の記述を追記（UID/GIDはホストOSのユーザーIDに合わせて設定）
 UID=1000
@@ -63,9 +63,9 @@ DB_PASSWORD=laravel_pass
 アプリキー生成
 （php artisan key:generate）
 
-🚀データベースの作成
+🚀データベース・ダミーデータの作成
 
-マイグレーション
+データベースの作成（マイグレーション）
 （php artisan migrate）
 
 ダミーデータの作成
@@ -84,6 +84,7 @@ MySQL 8.0.26
 🌐 アクセスURL
 お問い合わせフォーム入力ページ：http://localhost/
 ユーザー登録ページ：http://localhost/register/
+管理画面：http://localhost/admin/contacts/
 
 phpMyAdmin:http://localhost:8080/
 ログイン情報：  

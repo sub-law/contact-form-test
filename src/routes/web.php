@@ -42,3 +42,6 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register.s
 
 Route::get('/admin/contacts', [AdminContactController::class, 'index'])->name('admin.index');
 Route::get('/admin/search', [AdminContactController::class, 'search'])->name('admin.search');
+Route::delete('/admin/contact/{id}', [AdminContactController::class, 'destroy'])->name('admin.destroy');
+Route::get('/admin/contact/{id}', [AdminContactController::class, 'show'])->name('admin.show');
+Route::get('/admin/export', [AdminContactController::class, 'export'])->name('admin.export');

@@ -101,6 +101,23 @@ body {
     grid-column: span 2;
 }
 
+.pagination-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.export-btn {
+    background-color: #a67c52;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
 .export-btn {
     background-color: #a67c52;
     color: #fff;
@@ -136,7 +153,6 @@ body {
     cursor: pointer;
 }
 
-/* モーダル */
 .modal {
     display: none;
     position: fixed;
@@ -163,6 +179,11 @@ body {
     right: 16px;
     font-size: 24px;
     cursor: pointer;
+}
+
+#delete-form {
+    text-align: center;
+    margin-top: 24px;
 }
 
 .delete-btn {
@@ -215,7 +236,6 @@ body {
 .pagination li:first-child a,
 .pagination li:last-child a {
     font-size: 12px;
-    /* ← 矢印だけ小さく */
     padding: 6px 10px;
     line-height: 1;
 }

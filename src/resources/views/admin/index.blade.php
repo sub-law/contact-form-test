@@ -37,12 +37,11 @@
         <button type="submit" class="search-btn">検索</button>
         <a href="{{ route('admin.index') }}" class="reset-btn">リセット</a>
 
-        {{-- <a href="{{ route('admin.export') }}" class="export-btn">エクスポート</a> --}}
-
     </form>
 
     <div class="admin-table-wrapper">
         <div class="pagination-top">
+            <a href="{{ route('admin.export', request()->query()) }}" class="export-btn">エクスポート</a>
             {{ $contacts->links('pagination::default') }}
         </div>
 
@@ -69,15 +68,50 @@
             </tbody>
         </table>
 
-
     </div>
 
-    <!-- モーダルウィンドウ -->
     <div class="modal" id="detail-modal">
         <div class="modal-content">
             <span class="modal-close">&times;</span>
             <div class="modal-body">
-                <!-- 詳細内容をJavaScriptで挿入 -->
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const detailButtons = document.querySelectorAll('.detail-btn');
+                        const modal = document.getElementById('detail-modal');
+                        const modalBody = modal.querySelector('.modal-body');
+                        const deleteForm = document.getElementById('delete-form');
+                        const closeBtn = document.querySelector('.modal-close');
+
+                        detailButtons.forEach(button => {
+                            button.addEventListener('click', function() {
+                                const contactId = this.dataset.id;
+
+                                fetch(`/admin/contact/${contactId}`)
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        modalBody.innerHTML = `
+                        <p><strong>お名前：</strong> ${data.full_name}</p>
+                        <p><strong>性別：</strong> ${data.gender_label}</p>
+                        <p><strong>メール：</strong> ${data.email}</p>
+                        <p><strong>電話番号：</strong> ${data.tel}</p>
+                        <p><strong>住所：</strong> ${data.address}</p>
+                        <p><strong>建物名：</strong> ${data.building}</p>
+                        <p><strong>お問い合わせの種類：</strong> ${data.category_name}</p>
+                        <p><strong>お問い合わせ内容：</strong><br>${data.detail}</p>
+                    `;
+                                        deleteForm.action = `/admin/contact/${contactId}`;
+                                        modal.style.display = 'block';
+                                    });
+                            });
+                        });
+
+                        closeBtn.addEventListener('click', function() {
+                            modal.style.display = 'none';
+                        });
+                    });
+                </script>
+
             </div>
             {{-- <form method="POST" action="" id="delete-form"> --}}
             <form method="POST" action="#" id="delete-form">
